@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		body,
+		div,
+		p,
+		ul,
+		li,
+		header {
+			margin: 0;
+			padding: 0
+		}
+
+		body {
+			width: 100%;
+			height: 100%;
+			background-color: rgb(255, 250, 232);
+			display: flex;
+			justify-content: center;
+		}
+
+		header {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+			justify-content: center;
+		}
+		header .er{
+			height: 25%;
+			width: 25%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: rgba(201, 129, 255, 0.4);
+			border-radius: 20px;
+		}
+		header .er img{
+			width: 100%;
+			height: 100%;
+			border-radius: 20px;
+		}
+		.cover {
+			width: 100%;
+			height: 100%;
+			visibility: hidden;
+			background: rgba(0, 0, 0, 0);
+			transition: background 0.5s;
+			z-index: 9999;
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: flex;
+			flex-flow: column;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.cover.cover2 {
+			background: rgba(0, 0, 0, 0.6);
+			visibility: visible
+		}
+
+		.cover .erweima {
+			height: 70%;
+			width: 50%;
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+			justify-content: center;
+			border-radius: 20px;
+			transform: scaleX(0.5) scaleY(0.5);
+			transition: transform 0.5s;
+			-webkit-transition: transform 0.5s;
+			background-color: #fff;
+		}
+
+		.cover .erweima.erweima2 {
+			transform: scaleX(1) scaleY(1);
+		}
+
+		.cover .erweima img {
+			width: 90%;
+			height: 70%;
+			margin-top: 10%
+		}
+		.cover .erweima .erweima_button{
+			flex:1;
+			width: 100%;
+			height: 100%;
+			display: flex;
+			margin-top: 10px;
+			border-top:1px solid #eee;
+			justify-content: center;
+			align-items: center;
+		}
+		@media screen and (max-width:600px) {
+			.cover .erweima {
+			height: 35%;
+			width: 70%;
+			}
+			header {
+			height:400px;
+			width:400px;
+		}
+		header .er{
+			margin-top:20px;
+			height: 25%;
+			width: 25%;
+		}
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<span>点击看大图效果</span>
+		<div class="er"><img src="./img/03.png" alt=""></div>
+	</header>
+	<section></section>
+	<div class="cover">
+		<div class="erweima">
+			<img src="./img/03.png" alt="">
+			<div class="erweima_button">关闭</div>
+		</div>
+	</div>
+
+</body>
+<script>
+	let er = document.querySelector('.er')
+	let cover = document.querySelector('.cover')
+	let erweima = document.querySelector('.erweima')
+	let close=document.querySelector('.erweima_button')
+	er.addEventListener('click', () => {
+		cover.className = 'cover cover2'
+		erweima.className = 'erweima erweima2'
+	})
+	close.addEventListener('click',()=>{
+		cover.className = 'cover'
+		erweima.className = 'erweima'
+	})
+</script>
+
+</html>
